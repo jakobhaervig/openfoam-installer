@@ -4,8 +4,6 @@ shopt -s direxpand
 # function of source OpenFOAM installation. Usage e.g. "of 2212 jakob"
 function of()
 {
-    win_user="jakob"
-
     if [ $# -eq 0 ]
     then
         echo "No OpenFOAM version specified as argument"
@@ -14,8 +12,10 @@ function of()
     if [ $# -eq 2 ]
     then
         user=$2
+        win_user=$3
     else
         user=$USER
+        win_user=$USER
     fi
 
     if ((${#1} == 4))
