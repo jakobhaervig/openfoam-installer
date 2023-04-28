@@ -1,7 +1,7 @@
 # expands directory when auto-completing
 shopt -s direxpand
 
-#function of source OpenFOAM installation. Usage e.g. "of 2212 jakob Jakob"
+#function to source OpenFOAM installation. Usage e.g. "of 2212 jakob Jakob"
 function of()
 {
     if [ $# -eq 0 ]
