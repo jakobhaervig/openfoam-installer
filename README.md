@@ -46,7 +46,7 @@ Then we can source OpenFOAM with paths set correctly by:
 
 e.g.
 
-`` of 2212 jakob jakobhaervig ``
+`` of 2306 jakob jakobhaervig ``
 
 Now, if all is set up correctly, you can type:
 
