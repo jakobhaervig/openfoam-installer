@@ -48,7 +48,7 @@ e.g.
 
 `` of 2212 jakob jakobhaervig ``
 
-Now, check if all works by typing:
+Now, if all is set up correctly, you can type:
 
 `` run ``
 
