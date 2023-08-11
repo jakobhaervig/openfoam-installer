@@ -36,7 +36,7 @@ source $HOME/.bashrc
 
 ## Sourcing your preferred OpenFOAM environment
 Let's assume we have the following setup:
-- OpenFOAM version installed: ``2212``
+- OpenFOAM version installed: ``2306``
 - WSL Ubuntu username: ``jakob``
 - Windows username: ``jakobhaervig``
 
