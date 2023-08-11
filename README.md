@@ -23,7 +23,7 @@ Let's assume we have the following setup:
 
 Then we can source OpenFOAM with paths set correctly by:
 
-`` of <of versions> <WSL Ubuntu username> <Windows username>``
+`` of <of version> <WSL Ubuntu username> <Windows username>``
 
 e.g.
 
