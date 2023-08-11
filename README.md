@@ -5,6 +5,25 @@ After having installed on WSL (Windows Subsystem Linux) you may go ahead a follo
 - Easily access your simulation data because your openfoam run folder will be changed to reside on the Windows partition
 
 ## Preparation
+
+### Step 1: Installing WSL
+- First, follow the [official guide ](https://learn.microsoft.com/en-gb/windows/wsl/install) to install WSL.
+- Go to Microsoft Store and install Ubuntu.
+- Open the Ubuntu App and go through the installation process, e.g. choose WSL Ubuntu username and password.
+
+### Step 2: Installing OpenFOAM
+In a Ubuntu WSL terminal type:
+```
+curl https://dl.openfoam.com/add-debian-repo.sh | sudo bash 
+```
+```
+sudo apt-get update 
+```
+```
+sudo apt-get install openfoam2306-default 
+```
+
+### Step 3: Download the script to set OpenFOAM paths
 From within the WSL terminal, type (copy/paste):
 
 ```
