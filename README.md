@@ -52,7 +52,7 @@ Now, if all is set up correctly, you can type:
 
 `` run ``
 
-`` cp $FOAM_TUTORIALS/incompressible/simpleFOAM/squareBend .``
+`` cp -r $FOAM_TUTORIALS/incompressible/simpleFOAM/squareBend .``
 
 `` ./Allrun ``
 
