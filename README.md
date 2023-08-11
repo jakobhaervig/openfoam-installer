@@ -48,5 +48,12 @@ e.g.
 
 `` of 2212 jakob jakobhaervig ``
 
-which 
+Now, check if all works by typing:
 
+`` run ``
+
+`` cp $FOAM_TUTORIALS/incompressible/simpleFOAM/squareBend .``
+
+`` ./Allrun ``
+
+You simulation should be running.
