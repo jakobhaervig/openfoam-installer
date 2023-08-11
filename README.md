@@ -4,11 +4,28 @@ After having installed on WSL (Windows Subsystem Linux) you may go ahead a follo
 - Easily switch (source) different OpenFOAM versions
 - Easily access your simulation data because your openfoam run folder will be changed to reside on the Windows partition
 
-## The command
+## Preparation
+From within the WSL terminal, type (copy/paste):
 
-`` of <of versions> <openfoam username> <windows username>``
+```
+wget -P $HOME https://raw.githubusercontent.com/jakobhaervig/openfoam-wsl-workflow/main/.bash_aliases
+```
+Next, source your .bashrc file (or reopen the terminal):
+```
+source $HOME/.bashrc
+```
 
-e.g. to source OpenFOAM 2212 with OpenFOAM username jakob and Windows username jakobhaervig, one would simply type:
+## Sourcing your preferred OpenFOAM environment
+Let's assume we have the following setup:
+- OpenFOAM versions installed: ``2212``
+- WSL Ubuntu username: ``jakob``
+- Windows username: ``jakobhaervig``
+
+Then we can source OpenFOAM with paths set correctly by:
+
+`` of <of versions> <WSL Ubuntu username> <Windows username>``
+
+e.g.
 
 `` of 2212 jakob jakobhaervig ``
 
