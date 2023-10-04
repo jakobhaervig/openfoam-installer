@@ -1,8 +1,9 @@
 # OpenFOAM workflow with WSL
 
-After having installed on WSL (Windows Subsystem Linux) you may go ahead a follow this guide. After following this guide you will be able to:
+After having followed this guide you will be able to:
 - Easily switch (source) different OpenFOAM versions
-- Easily access your simulation data because your openfoam run folder will be changed to reside on the Windows partition
+- Easily access your simulation data because your OpenFOAM run folder will be changed to reside on the Windows partition
+- Your user directory will reside in your Windows filesystem (more specificially the variable ``$WM_PROJECT_USER_DIR`` will point to a user folder in your Windows filesystem)
 
 ## Preparation
 
