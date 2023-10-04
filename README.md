@@ -42,18 +42,28 @@ Let's assume we have the following setup:
 
 Then we can source OpenFOAM with paths set correctly by:
 
-`` of <of version> <WSL Ubuntu username> <Windows username>``
+```
+of <of version> <WSL Ubuntu username> <Windows username>
+```
 
 e.g.
 
-`` of 2306 jakob jakobhaervig ``
+```
+of 2306 jakob jakobhaervig
+```
 
 Now, if all is set up correctly, you can type:
 
-`` run ``
+```
+run
+```
 
-`` cp -r $FOAM_TUTORIALS/incompressible/simpleFoam/squareBend .``
+```
+cp -r $FOAM_TUTORIALS/incompressible/simpleFoam/squareBend .
+```
 
-`` ./Allrun ``
+```
+./Allrun
+```
 
 You simulation should be running.
