@@ -7,7 +7,7 @@ After having installed on WSL (Windows Subsystem Linux) you may go ahead a follo
 ## Preparation
 
 ### Step 1: Installing WSL
-- First, follow the [official guide ](https://learn.microsoft.com/en-gb/windows/wsl/install) to install WSL.
+- First, follow the [official guide](https://learn.microsoft.com/en-gb/windows/wsl/install) to install WSL.
 - Go to Microsoft Store and install Ubuntu.
 - Open the Ubuntu App and go through the installation process, e.g. choose WSL Ubuntu username and password.
 
@@ -66,4 +66,4 @@ cp -r $FOAM_TUTORIALS/incompressible/simpleFoam/squareBend .
 ./Allrun
 ```
 
-You simulation should be running.
+You simulation should be running. When it's done you can find the results in Windows at ``$HOME/openfoam-data`` (``C:\Users\jakob\openfoam-data``).
