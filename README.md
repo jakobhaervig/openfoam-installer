@@ -34,7 +34,7 @@ Next, source your .bashrc file (or reopen the terminal):
 source $HOME/.bashrc
 ```
 
-## Sourcing your preferred OpenFOAM environment
+## Selecting (sourcing) your preferred OpenFOAM version
 Let's assume we have the following setup:
 - OpenFOAM version installed: ``2306``
 - WSL Ubuntu username: ``jakob``
