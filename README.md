@@ -67,4 +67,4 @@ cp -r $FOAM_TUTORIALS/incompressible/simpleFoam/squareBend .
 ./Allrun
 ```
 
-You simulation should be running. When it's done you can find the results in Windows at ``$HOME/openfoam-data`` (``C:\Users\jakob\openfoam-data``).
+Your simulation should be running. When it's done you can find the results in your Windows file system at ``$HOME/openfoam-data`` (``e.g. C:\Users\jakob\openfoam-data``).
