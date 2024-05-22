@@ -21,7 +21,7 @@ curl https://dl.openfoam.com/add-debian-repo.sh | sudo bash
 sudo apt-get update 
 ```
 ```
-sudo apt-get install openfoam2306-default 
+sudo apt-get install openfoam2312-default 
 ```
 
 ### Step 3: Download the script to set OpenFOAM paths
@@ -37,7 +37,7 @@ source $HOME/.bashrc
 
 ## Selecting (sourcing) your preferred OpenFOAM version
 Let's assume we have the following setup:
-- OpenFOAM version installed: ``2306``
+- OpenFOAM version installed: ``2312``
 - WSL Ubuntu username: ``jakob``
 - Windows username: ``jakobhaervig``
 
@@ -50,7 +50,7 @@ of <of version> <WSL Ubuntu username> <Windows username>
 e.g.
 
 ```
-of 2306 jakob jakobhaervig
+of 2312 jakob jakobhaervig
 ```
 
 Now, if all is set up correctly, you can type:
