@@ -1,4 +1,4 @@
-# OpenFOAM workflow
+# OpenFOAM Installer
 
 After having followed this guide you will be able to:
 - WSL and Ubuntu: Easily switch between (source) different OpenFOAM versions
