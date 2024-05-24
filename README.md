@@ -1,31 +1,38 @@
-# OpenFOAM workflow with WSL
+# OpenFOAM workflow
 
 After having followed this guide you will be able to:
-- Easily switch (source) different OpenFOAM versions
-- Easily access your simulation data because your OpenFOAM run folder will be changed to reside on the Windows partition
-- Your user directory will reside in your Windows filesystem (more specificially the variable ``$WM_PROJECT_USER_DIR`` will point to a user folder in your Windows filesystem)
+- WSL and Ubuntu: Easily switch between (source) different OpenFOAM versions
+- WSL: You will have easier access to your simulation data because your OpenFOAM run folder (``$WM_PROJECT_USER_DIR``) will be changed to reside on the Windows partition
 
 ## Preparation
 
-### Step 1: Installing WSL
+### Step 1 (WSL users only): Installing WSL
 - First, follow the [official guide](https://learn.microsoft.com/en-gb/windows/wsl/install) to install WSL.
 - Go to Microsoft Store and install Ubuntu.
 - Open the Ubuntu App and go through the installation process, e.g. choose WSL Ubuntu username and password.
+- When referred to a terminal throug the remainder of this guide, open a WSL terminal.
 
 ### Step 2: Installing OpenFOAM
-In a Ubuntu WSL terminal type:
+Open a terminal:
 ```
 curl https://dl.openfoam.com/add-debian-repo.sh | sudo bash 
 ```
 ```
 sudo apt-get update 
 ```
+
+To install the latest version of OpenFOAM, do:
+```
+sudo apt-get install openfoam-default
+```
+
+Alternatively, you may choose to install a specific version, e.g.:
 ```
 sudo apt-get install openfoam2312-default 
 ```
 
 ### Step 3: Download the script to set OpenFOAM paths
-From within the WSL terminal, type (copy/paste):
+From within a terminal, type (copy/paste):
 
 ```
 wget -P $HOME https://raw.githubusercontent.com/jakobhaervig/openfoam-wsl-workflow/main/.bash_aliases
@@ -37,20 +44,18 @@ source $HOME/.bashrc
 
 ## Selecting (sourcing) your preferred OpenFOAM version
 Let's assume we have the following setup:
-- OpenFOAM version installed: ``2312``
-- WSL Ubuntu username: ``jakob``
-- Windows username: ``jakobhaervig``
+- OpenFOAM version installed: ``latest``
 
-Then we can source OpenFOAM with paths set correctly by:
+In a terminal you can now source OpenFOAM with paths set correctly by typing:
 
 ```
-of <of version> <WSL Ubuntu username> <Windows username>
+of
 ```
 
-e.g.
+If you want another version than the latest, you can type:
 
 ```
-of 2312 jakob jakobhaervig
+of 2312
 ```
 
 Now, if all is set up correctly, you can type:
@@ -67,4 +72,4 @@ cp -r $FOAM_TUTORIALS/incompressible/simpleFoam/squareBend .
 ./Allrun
 ```
 
-Your simulation should be running. When it's done you can find the results in your Windows file system at ``$HOME/openfoam-data`` (``e.g. C:\Users\jakob\openfoam-data``).
+Your simulation should be running. When it's done you can find the results in your home folder, e.g. ``$HOME/openfoam-data`` (linux) or ``C:\Users\jakob\openfoam-data`` (Windows).
