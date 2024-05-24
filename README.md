@@ -10,7 +10,7 @@ After having followed this guide you will be able to:
 - First, follow the [official guide](https://learn.microsoft.com/en-gb/windows/wsl/install) to install WSL.
 - Go to Microsoft Store and install Ubuntu.
 - Open the Ubuntu App and go through the installation process, e.g. choose WSL Ubuntu username and password.
-- When referred to a terminal throug the remainder of this guide, open a WSL terminal.
+- When referred to a terminal throughout this guide, open a WSL terminal.
 
 ### Step 2: Installing OpenFOAM
 Open a terminal:
