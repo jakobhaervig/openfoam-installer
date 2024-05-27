@@ -35,7 +35,7 @@ sudo apt-get install openfoam2312-default
 From within a terminal, type (copy/paste):
 
 ```
-wget -P $HOME https://raw.githubusercontent.com/jakobhaervig/openfoam-wsl-workflow/main/.bash_aliases
+wget -P $HOME https://raw.githubusercontent.com/jakobhaervig/openfoam-installer/main/.bash_aliases
 ```
 Next, source your .bashrc file (or reopen the terminal):
 ```
