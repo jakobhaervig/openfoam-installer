@@ -1,55 +1,33 @@
 # expands directory when auto-completing
 shopt -s direxpand
 
-#function to source OpenFOAM installation. Usage e.g. "of 2212 Jakob"
+#function to source OpenFOAM installation. Usage e.g. "of 2312"
 function of()
 {
         if [ $# -eq 0 ]
         then
-            echo "Sourcing OpenFOAM latest with WM_PROJECT_USER_DIR=$path"
+            source /usr/lib/openfoam/openfoam/etc/bashrc
+            OFver=$WM_PROJECT_VERSION
         fi
 
-            then
-                if [ $# -eq 1 ]
-                then
-                    user=$USER
-                    win_user=$(/mnt/c/Windows/System32/cmd.exe /c 'echo %USERNAME%' | sed -e 's/\r//g')
-                elif [ $# -eq 2 ]
-                then
-                    user=$USER
-                    win_user=$(/mnt/c/Windows/System32/cmd.exe /c 'echo %USERNAME%' | sed -e 's/\r//g')
-                fi
+        if [ $# -eq 1 ]
+        then
+            source /usr/lib/openfoam/openfoam$1/etc/bashrc
+            OFver=$WM_PROJECT_VERSION
+        fi
 
-                if [[ $(grep -i Microsoft /proc/version) ]]; 
-                then
-                    echo "Bash seems to be running on Windows Subsystem for Linux (WSL)."
-                    path=/mnt/c/Users/$win_user/openfoam-data/$user-v$1
-                else
-                    echo "Bash seems to running natively on Linux"
-                    path=$HOME/openfoam-data/$user-v$1
-                fi
-                echo "Home folder expected at $path"                 
-                echo "Sourcing OpenFOAM v$1 with WM_PROJECT_USER_DIR=$path"
+        # set path for user folder
+        if [[ $(grep -i Microsoft /proc/version) ]]; 
+        then
+            user=$USER
+            win_user=$(/mnt/c/Windows/System32/cmd.exe /c 'echo %USERNAME%' 2>nul | sed -e 's/\r//g') 
+            path=/mnt/c/Users/$win_user/openfoam-data/$user-$WM_PROJECT_VERSION
+        else
+            user=$USER
+            path=$HOME/openfoam-data/$user-$WM_PROJECT_VERSION
+        fi
 
-                if [ ! -d $path ]
-                then
-                    echo "Creates $path/run"
-                    mkdir -p $path/run
-                    echo "Creates $path/applications"
-                    mkdir -p $path/applications
-                fi
-
-                if ((${#1} == 4))
-                then
-                    source /usr/lib/openfoam/openfoam$1/etc/bashrc WM_PROJECT_USER_DIR=$path
-                else
-                    source /opt/openfoam$1/etc/bashrc WM_PROJECT_USER_DIR=$path
-                fi
-            fi
-    fi
-
-
-
-
-    
+        # sourcing openfoam
+        source /usr/lib/openfoam/openfoam$1/etc/bashrc WM_PROJECT_USER_DIR=$path
+        echo "Sourced OpenFOAM-$OFver with WM_PROJECT_USER_DIR=$path"
 }
