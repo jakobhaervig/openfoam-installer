@@ -20,7 +20,7 @@ function of()
         if [[ $(grep -i Microsoft /proc/version) ]]; 
         then
             user=$USER
-            win_user=$(/mnt/c/Windows/System32/cmd.exe /c 'echo %USERNAME%' 2>nul | sed -e 's/\r//g') 
+            win_user=$(/mnt/c/Windows/System32/cmd.exe /c 'echo %USERNAME%' 2>/dev/null | sed -e 's/\r//g') 
             path=/mnt/c/Users/$win_user/openfoam-data/$user-$WM_PROJECT_VERSION
         else
             user=$USER
