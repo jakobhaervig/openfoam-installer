@@ -61,6 +61,10 @@ of 2312
 Now, if all is set up correctly, you can type:
 
 ```
+mkdir -p $FOAM_RUN
+```
+
+```
 run
 ```
 
