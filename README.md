@@ -94,8 +94,11 @@ After having done step 1-4 you are now ready to test the installation.
 ```
 of
 ```
+If you get an output like the following, OpenFOAM has been sourced correctly and you are now ready to start doing simulations:
 
-If you want another version than the latest, you can type:
+![](of-sourced.jpg)
+
+If you want another version than the latest, you can type (assume you have installed that version in step 3b:
 
 ```
 of 2312
