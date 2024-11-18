@@ -7,7 +7,7 @@ In this guide we will setup OpenFOAM for Windows through Windows Subsystem for L
 
 **1b)** Go to Microsoft Store and install Ubuntu.
 
-**1c)** Open the Ubuntu App and go through the installation process, e.g. choose WSL Ubuntu username and password.
+**1c)** Open the Ubuntu App and go through the installation process, e.g. choose WSL Ubuntu username and password. Note that the password remains hidden when you enter it.
 
 **1d)** When referred to a terminal throughout this guide, open a WSL terminal.
 
