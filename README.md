@@ -7,10 +7,10 @@ In this guide we will setup OpenFOAM for Windows through Windows Subsystem for L
 
 **1b)** Go to Microsoft Store and install Ubuntu.
 
-**1c)** Make sure that two windows features "Virtual Machine Platform" and "Windows Subsystem for Linux" are turned on.  The settings can be found by going to Control Panel > Programs and Features > Turn Windows features on or off.
+**1c)** Make sure that the two windows features "Virtual Machine Platform" and "Windows Subsystem for Linux" are turned on.  The settings can be found by going to Control Panel > Programs and Features > Turn Windows features on or off.
 
 **1d)** Open the Ubuntu App and go through the installation process, e.g. choose WSL Ubuntu username and password. Note that the password remains hidden when you enter it.
-If step **1d)** returns error "WslRegisterDistribution failed with error: 0x80370114" after turning the two features on from **1c)**, try also turning the freature "Windows Hypervisor Platfrom" on and repeat step **1d)**
+If the error "WslRegisterDistribution failed with error: 0x80370114" is returned, also enable the feature "Windows Hypervisor Platfrom" in step **1c)**.
 
 **1e)** When referred to a terminal throughout this guide, open a WSL terminal.
 
