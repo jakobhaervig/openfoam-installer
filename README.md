@@ -12,8 +12,6 @@ In this guide we will setup OpenFOAM for Windows through Windows Subsystem for L
 **1d)** Open the Ubuntu App and go through the installation process, e.g. choose UNIX username and password when prompted. Note that the password remains hidden when you enter it, which is fine.
 If the error "WslRegisterDistribution failed with error: 0x80370114" is returned, also enable the feature "Windows Hypervisor Platfrom" in step **1c)**.
 
-**1e)** When referred to a terminal throughout this guide, open a WSL terminal.
-
 ## Step 2: Installing Visual Studio Code
 **2a)** First, install the text editor [Visual Studio Code](https://code.visualstudio.com).
 
@@ -42,11 +40,11 @@ If the error "WslRegisterDistribution failed with error: 0x80370114" is returned
 
 ![](settings-json2.jpg)
 
-**2f)** Open a new WSL terminal. In the menu choose Terminal -> New terminal.
+**2f)** Open a new Ubuntu terminal. In the menu choose Terminal -> New terminal.
 
 ![](new-terminal.jpg)
 
-**2g)** In the newly opened terminal, choose the dropdown menu and choose Ubuntu (WSL).
+**2g)** In the newly opened terminal, use the dropdown menu to choose Ubuntu (WSL).
 
 ![](wsl-terminal.jpg)
 
@@ -59,7 +57,7 @@ We should now be ready to install OpenFOAM.
 ## Step 3: Installing OpenFOAM
 The following commands should be entered in the WSL terminal that you opened in step 2g.
 
-**3a)** Open a terminal and add the OpenFOMA repository:
+**3a)** Open a terminal and add the OpenFOAM repository:
 ```
 curl https://dl.openfoam.com/add-debian-repo.sh | sudo bash 
 ```
@@ -67,18 +65,18 @@ curl https://dl.openfoam.com/add-debian-repo.sh | sudo bash
 sudo apt-get update 
 ```
 
-**3b)** Install the latest version of OpenFOAM
+**3b)** Install the latest version of OpenFOAM:
 
 ```
 sudo apt-get install openfoam-default
 ```
 
-Alternatively, you may choose to install a specific version, e.g.:
+Alternatively, you may choose to install a old specific version, e.g.:
 ```
 sudo apt-get install openfoam2312-default 
 ```
 ## Step 4: Set paths for OpenFOAM
-The following commands should be entered in the WSL terminal that you opened in step 2g.
+Open a Ubuntu (WSL) terminal as you did in step 2g:
 
 **4a)** Copy/paste the following into the terminal to add a function to your ``.bash_aliases`` file:
 
