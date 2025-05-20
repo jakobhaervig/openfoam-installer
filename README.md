@@ -3,13 +3,13 @@
 In this guide we will setup OpenFOAM for Windows through Windows Subsystem for Linux (WSL). Linux users may follow this guide as well but skip the steps that are related to WSL. MacOS users should look elsewhere.
 
 ## Step 1: Installing Windows Subsystem for Linux (WSL)
-**1a)** First, follow the [official guide](https://learn.microsoft.com/en-gb/windows/wsl/install) to install WSL.
+**1a)** First, follow the [official guide](https://learn.microsoft.com/en-gb/windows/wsl/install#install-wsl-command) to install WSL. Note that you just need to follow the step "Install WSL command".
 
 **1b)** Go to Microsoft Store and install Ubuntu.
 
 **1c)** Make sure that the two windows features "Virtual Machine Platform" and "Windows Subsystem for Linux" are turned on.  The settings can be found by going to Control Panel > Programs and Features > Turn Windows features on or off.
 
-**1d)** Open the Ubuntu App and go through the installation process, e.g. choose WSL Ubuntu username and password. Note that the password remains hidden when you enter it.
+**1d)** Open the Ubuntu App and go through the installation process, e.g. choose UNIX username and password when prompted. Note that the password remains hidden when you enter it, which is fine.
 If the error "WslRegisterDistribution failed with error: 0x80370114" is returned, also enable the feature "Windows Hypervisor Platfrom" in step **1c)**.
 
 **1e)** When referred to a terminal throughout this guide, open a WSL terminal.
