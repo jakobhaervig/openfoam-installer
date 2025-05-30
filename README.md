@@ -13,9 +13,9 @@ In this guide we will setup OpenFOAM for Windows through Windows Subsystem for L
 If the error "WslRegisterDistribution failed with error: 0x80370114" is returned, also enable the feature "Windows Hypervisor Platfrom" in step **1c)**.
 
 ## Step 2: Installing OpenFOAM
-The following commands should be entered in the WSL terminal that you opened in step 2g.
+Open a Ubuntu (WSL) terminal (Ubuntu App) and enter the following:
 
-**2a)** Open a terminal and add the OpenFOAM repository:
+**2a)** Add the OpenFOAM repository:
 ```
 curl https://dl.openfoam.com/add-debian-repo.sh | sudo bash 
 ```
@@ -34,7 +34,7 @@ Alternatively, you may choose to install a old specific version, e.g.:
 sudo apt-get install openfoam2412-default 
 ```
 ## Step 3: Set paths for OpenFOAM
-Open a Ubuntu (WSL) terminal as you did in step 2g:
+Open a Ubuntu (WSL) terminal (Ubuntu App) and enter the following:
 
 **3a)** Copy/paste the following into the terminal to add a function to your ``.bash_aliases`` file:
 
@@ -47,7 +47,7 @@ source $HOME/.bashrc
 ```
 
 ## Step 4: Test OpenFOAM installation by running a tutorial
-After having done step 1-4 you are now ready to test the installation.
+After having completed the previous steps, we are now ready to test the installation. Again, open a Ubuntu (WSL) terminal (Ubuntu App) and enter the following:
 
 **4a)** Source OpenFOAM. If you installed the lastest version of OpenFOAM, simply type
 ```
@@ -57,7 +57,7 @@ If you get an output like the following, OpenFOAM has been sourced correctly and
 
 ![](of-sourced.jpg)
 
-If you want another version than the latest, you can type (assume you have installed that version in step 2b):
+If you want to source another version than the latest, you can type (assume you have installed that version in step 2b):
 
 ```
 of 2412
