@@ -1,0 +1,108 @@
+#!/bin/bash
+
+# Copyright (C) 2025 Jakob Haervig
+
+of()
+{
+    if [[ $# -lt 1 || $# -gt 2 ]]; then
+        echo "Usage: of <com|org> [version]"
+        echo "Examples:"
+        echo "  of com 2412    # Activates OpenFOAM.com version 2412"
+        echo "  of org 12      # Activates OpenFOAM.org version 12"
+        echo "  of com         # Activates OpenFOAM.com development version"
+        echo "  of org         # Activates OpenFOAM.org development version"
+        return 1
+    fi
+
+    # Deactivate current OpenFOAM environment if one is active
+    foam_deactivate
+
+    local branch="$1"
+    local version="$2"
+    local OFpath
+
+    case $branch in
+        com)
+            if [[ -n "$version" ]]; then
+                OFpath="/usr/lib/openfoam/openfoam${version}/etc/bashrc"
+            else
+                local version="dev"
+                OFpath="/usr/lib/openfoam/openfoam/etc/bashrc"
+            fi
+            ;;
+        org)
+            if [[ -n "$version" ]]; then
+                OFpath="/opt/openfoam${version}/etc/bashrc"
+            else
+                local version="dev"
+                OFpath="/opt/openfoam-dev/etc/bashrc"
+            fi
+            ;;
+        *)
+            echo "Error: Invalid installation type '$branch'"
+            echo "Must be either 'com' or 'org'"
+            return 1
+            ;;
+    esac
+
+    # Check if the bashrc file exists
+    if [[ ! -f "$OFpath" ]]; then
+        echo "Error: OpenFOAM bashrc file not found at: $OFpath"
+        echo "Please check if OpenFOAM $branch version $version is installed"
+        return 1
+    fi
+
+    # Source the OpenFOAM environment
+    source "$OFpath"
+
+    if [[ $(grep -i Microsoft /proc/version) ]]; 
+    then
+        user=$USER
+        win_user=$(/mnt/c/Windows/System32/cmd.exe /c 'echo %USERNAME%' 2>/dev/null | sed -e 's/\r//g') 
+        WM_PROJECT_USER_DIR=/mnt/c/Users/$win_user/openfoam-data/$user-$WM_PROJECT_VERSION
+    else
+        user=$USER
+        WM_PROJECT_USER_DIR=$HOME/openfoam-data/$user-$WM_PROJECT_VERSION
+    fi
+
+    source $OFpath WM_PROJECT_USER_DIR=$WM_PROJECT_USER_DIR
+
+    echo "Sourced $OFpath" with WM_PROJECT_USER_DIR="$WM_PROJECT_USER_DIR"
+
+    if [[ $? -eq 0 ]]; then
+        echo "OpenFOAM environment is now ready"
+    else
+        echo "Error: Failed to source $OFpath"
+        return 1
+    fi
+}
+
+# Function to deactivate current OpenFOAM environment
+foam_deactivate()
+{
+    if [[ -n "$WM_PROJECT_DIR" ]]; then
+        echo "Deactivating current OpenFOAM environment"
+        
+        # Remove OpenFOAM paths from PATH
+        if [[ -n "$WM_PROJECT_DIR" ]]; then
+            export PATH=$(echo "$PATH" | sed -e "s|$WM_PROJECT_DIR/[^:]*:||g" -e "s|:$WM_PROJECT_DIR/[^:]*||g" -e "s|^$WM_PROJECT_DIR/[^:]*$||")
+        fi
+        
+        # Remove OpenFOAM paths from LD_LIBRARY_PATH
+        if [[ -n "$FOAM_LIBBIN" ]]; then
+            export LD_LIBRARY_PATH=$(echo "$LD_LIBRARY_PATH" | sed -e "s|$FOAM_LIBBIN:||g" -e "s|:$FOAM_LIBBIN||g" -e "s|^$FOAM_LIBBIN$||")
+        fi
+        
+        # Unset OpenFOAM environment variables
+        unset WM_PROJECT WM_PROJECT_VERSION WM_PROJECT_DIR
+        unset WM_COMPILER_LIB_ARCH WM_COMPILER WM_ARCH WM_ARCH_OPTION
+        unset WM_PRECISION_OPTION WM_COMPILE_OPTION WM_MPLIB
+        unset FOAM_APPBIN FOAM_LIBBIN FOAM_SRC FOAM_TUTORIALS
+        unset FOAM_RUN FOAM_USER_APPBIN FOAM_USER_LIBBIN
+        unset MPI_ROOT MPI_ARCH_FLAGS MPI_ARCH_INC MPI_ARCH_LIBS
+        unset FOAM_INST_DIR FOAM_MPI WM_THIRD_PARTY_DIR
+        unset ParaView_DIR ParaView_INCLUDE_DIR ParaView_VERSION
+        unset PV_PLUGIN_PATH PARAVIEW_VERSION
+        
+    fi
+}

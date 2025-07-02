@@ -39,7 +39,7 @@ Open a Ubuntu (WSL) terminal (Ubuntu App) and enter the following:
 **3a)** Copy/paste the following into the terminal to add a function to your ``.bash_aliases`` file:
 
 ```
-wget https://raw.githubusercontent.com/jakobhaervig/openfoam-installer/main/.bash_aliases -O - >> $HOME/.bash_aliases
+wget https://raw.githubusercontent.com/jakobhaervig/openfoam-installer/main/foamSwitcher -O - >> $HOME/.bash_aliases
 ```
 **3b)** Next, source your ``.bashrc`` file (or reopen the terminal):
 ```
@@ -49,9 +49,9 @@ source $HOME/.bashrc
 ## Step 4: Test OpenFOAM installation by running a tutorial
 After having completed the previous steps, we are now ready to test the installation. Again, open a Ubuntu (WSL) terminal (Ubuntu App) and enter the following:
 
-**4a)** Source OpenFOAM. If you installed the lastest version of OpenFOAM, simply type
+**4a)** Source OpenFOAM. If you installed the latest version of OpenFOAM (from openfoam.com) installed, simply type
 ```
-of
+of com
 ```
 If you get an output like the following, OpenFOAM has been sourced correctly and you are now ready to start doing simulations:
 
@@ -60,7 +60,7 @@ If you get an output like the following, OpenFOAM has been sourced correctly and
 If you want to source another version than the latest, you can type (assume you have installed that version in step 2b):
 
 ```
-of 2412
+of com 2412
 ```
 
 **4b)** Create a directory for our simulation data:
