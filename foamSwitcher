@@ -5,10 +5,10 @@ of()
     if [[ $# -lt 1 || $# -gt 2 ]]; then
         echo "Usage: of <com|org> [version]"
         echo "Examples:"
-        echo "  of com 2412    # Activates OpenFOAM.com version 2412"
-        echo "  of org 12      # Activates OpenFOAM.org version 12"
-        echo "  of com         # Activates OpenFOAM.com development version"
-        echo "  of org         # Activates OpenFOAM.org development version"
+        echo "  of com 2506    # Activates OpenFOAM.com version 2506"
+        echo "  of org 13      # Activates OpenFOAM.org version 13"
+        echo "  of com         # Activates OpenFOAM.com latest version"
+        echo "  of org         # Activates OpenFOAM.org latest version"
         return 1
     fi
 
@@ -21,25 +21,24 @@ of()
 
     case $branch in
         com)
-            if [[ -n "$version" ]]; then
-                OFpath="/usr/lib/openfoam/openfoam${version}/etc/bashrc"
-            else
-                local version="dev"
-                OFpath="/usr/lib/openfoam/openfoam/etc/bashrc"
-                if [ ! -d "$OFpath" ]; then
-                    echo "Warning: OpenFOAM.com development version not found at /usr/lib/openfoam/openfoam/etc/bashrc"
-                    version=$(ls /usr/lib/openfoam | sed 's/[^0-9]*//' | sort -n | tail -n 1)
-                    OFpath="/usr/lib/openfoam/openfoam${version}/etc/bashrc"
+            if [[ -z "$version" ]]; then
+                version=$(ls /usr/lib/openfoam | sed 's/[^0-9]*//' | sort -n | tail -n 1)
+                if [[ -z "$version" ]]; then
+                    echo "Error: No OpenFOAM.com version found"
+                    return 1
                 fi
             fi
+            OFpath="/usr/lib/openfoam/openfoam${version}/etc/bashrc"
             ;;
         org)
-            if [[ -n "$version" ]]; then
-                OFpath="/opt/openfoam${version}/etc/bashrc"
-            else
-                local version="dev"
-                OFpath="/opt/openfoam-dev/etc/bashrc"
+            if [[ -z "$version" ]]; then
+                version=$(ls /opt/openfoam | sed 's/[^0-9]*//' | sort -n | tail -n 1)
+                if [[ -z "$version" ]]; then
+                    echo "Error: No OpenFOAM.org version found"
+                    return 1
+                fi
             fi
+            OFpath="/opt/openfoam${version}/etc/bashrc"
             ;;
         *)
             echo "Error: Invalid installation type '$branch'"
