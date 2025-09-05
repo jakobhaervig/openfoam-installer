@@ -26,7 +26,7 @@ sudo apt-get update
 **2b)** Install the latest version of OpenFOAM:
 
 ```
-sudo apt-get install openfoam-default
+sudo apt-get install openfoam-dev
 ```
 
 Alternatively, you may choose to install a old specific version, e.g.:
@@ -60,7 +60,7 @@ If you get an output like the following, OpenFOAM has been sourced correctly and
 If you want to source another version than the latest, you can type (assume you have installed that version in step 2b):
 
 ```
-of com 2412
+of com 2506
 ```
 
 **4b)** Create a directory for our simulation data:
