@@ -26,7 +26,7 @@ sudo apt-get update
 **2b)** Install the latest version of OpenFOAM:
 
 ```
-sudo apt-get install openfoam-dev
+sudo apt-get install openfoam-default
 ```
 
 Alternatively, you may choose to install a old specific version, e.g.:
